@@ -1,0 +1,14 @@
+/.vs/
+.vsconfig
+Assembly-CSharp.csproj
+HomeSystemAlert.sln
+/Library/
+/Logs/
+/Packages/
+/ProjectSettings/
+/Temp/
+Unity.CollabProxy.Editor.csproj
+Unity.PlasticSCM.Editor.csproj
+UnityEngine.UI.csproj
+/UserSettings/
+/obj/
