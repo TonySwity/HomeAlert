@@ -19,10 +19,10 @@ public class MovementPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        WalkPlayer(); 
+        MovePlayer(); 
     }
 
-    private void WalkPlayer()
+    private void MovePlayer()
     {
         
        _rigidbody2D.velocity = new Vector2(_moveVector.x * _speed, _rigidbody2D.velocity.y);
