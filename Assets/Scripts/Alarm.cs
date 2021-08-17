@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 
-public class AlarmSystem : MonoBehaviour
+public class Alarm : MonoBehaviour
 {
     private AudioSource _audioSource;
     private float _speedAlarm = 0.2f;
@@ -11,14 +12,15 @@ public class AlarmSystem : MonoBehaviour
     private float _maxVolume = 1;
     private Coroutine _signal;
 
-    private void Start()
+    private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StopCoroutine();   
+        StopCoroutineSignaled();   
 
         if (collision.TryGetComponent<Player>(out Player player))
         {
@@ -28,14 +30,14 @@ public class AlarmSystem : MonoBehaviour
             {
                 _targetVolume = _maxVolume;
             }
-            
-            StartCoroutine(_targetVolume);
+
+            StartCoroutineSignaled();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        StopCoroutine();
+        StopCoroutineSignaled();
 
         if (collision.TryGetComponent<Player>(out Player player))
         {
@@ -44,22 +46,22 @@ public class AlarmSystem : MonoBehaviour
             {
                 _targetVolume = _minVolume;
             }
-            
-            StartCoroutine(_targetVolume);
+
+            StartCoroutineSignaled();
         }
     }
 
-    private IEnumerator Signaled( float target)
+    private IEnumerator Signaled()
     {
-        while(_audioSource.volume !=  target)
+        while(_audioSource.volume !=  _targetVolume)
         {
-            _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, target, _speedAlarm * Time.deltaTime);
+            _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, _targetVolume, _speedAlarm * Time.deltaTime);
 
             yield return null;
         }
     }
 
-    private void StopCoroutine()
+    private void StopCoroutineSignaled()
     {
         if (_signal != null)
         {
@@ -68,11 +70,11 @@ public class AlarmSystem : MonoBehaviour
         }
     }
 
-    private void StartCoroutine(float target)
+    private void StartCoroutineSignaled()
     {
         if (_signal == null)
         {
-            _signal = StartCoroutine(Signaled(target));
+            _signal = StartCoroutine(Signaled());
         }
     }
 }

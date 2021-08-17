@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 508711020}
   - component: {fileID: 508711021}
   m_Layer: 0
-  m_Name: Square (3)
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,8 +339,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508711019}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8431001, y: -0.00999999, z: 0.3194695}
-  m_LocalScale: {x: 0.30731738, y: 1.1138364, z: 0}
+  m_LocalPosition: {x: -0.8431001, y: -0.0533, z: 0.3194695}
+  m_LocalScale: {x: 0.30731738, y: 1.200493, z: 0}
   m_Children: []
   m_Father: {fileID: 2125306589}
   m_RootOrder: 5
@@ -750,7 +750,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864927162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.04, y: -3.44, z: 0}
+  m_LocalPosition: {x: 3.026, y: -3.508, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -830,7 +830,7 @@ GameObject:
   - component: {fileID: 1151128987}
   - component: {fileID: 1151128986}
   m_Layer: 0
-  m_Name: Door
+  m_Name: SQuare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
